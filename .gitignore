@@ -1,0 +1,49 @@
+# ===============#
+# Unity Generated #
+# ===============#
+
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# User-specific settings
+UserSettings/
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# Auto-generated files
+*.apk
+*.aab
+*.unitypackage
+
+# Crash and debug logs
+sysinfo.txt
+*.stacktrace
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Rider IDE
+.idea/
+*.sln.iml
+
+# Unity Collaborate
+.collabignore
+*.collab
