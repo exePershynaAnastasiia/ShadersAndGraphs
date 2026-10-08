@@ -47,3 +47,6 @@ desktop.ini
 # Unity Collaborate
 .collabignore
 *.collab
+
+# Unity imported learning samples
+/Assets/Samples/
