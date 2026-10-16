@@ -1,5 +1,3 @@
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
 Shader "Custom/LightingShader" {
     Properties {
         _Tint ("Tint", Color) = (1, 1, 1, 1)
@@ -33,7 +31,7 @@ Shader "Custom/LightingShader" {
 
 			Interpolators MyVertexProgram (VertexData v) {
 				Interpolators i;
-				i.position = UnityObjectToClipPos(v.position);
+				i.position = mul(UNITY_MATRIX_MVP, v.position);
 				i.worldPos = mul(unity_ObjectToWorld, v.position);
 				i.normal = UnityObjectToWorldNormal(v.normal);
 				i.uv = TRANSFORM_TEX(v.uv, _MainTex);
@@ -43,11 +41,7 @@ Shader "Custom/LightingShader" {
             float4 MyFragmentProgram (Interpolators i) : SV_TARGET {
                 float3 viewDir = normalize(_WorldSpaceCameraPos - i.worldPos);
 				i.normal = normalize(i.normal);
-				float3 lightColor = _LightColor0.rgb;
-				float3 albedo = tex2D(_MainTex, i.uv).rgb * _Tint.rgb;
-				float3 diffuse =
-					albedo * lightColor * DotClamped(lightDir, i.normal);
-				return float4(diffuse, 1);
+				return DotClamped(float3(0, 1, 0), i.normal);
 			}
 
             ENDCG
